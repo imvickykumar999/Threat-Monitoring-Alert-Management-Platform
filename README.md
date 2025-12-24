@@ -54,7 +54,7 @@ docker-compose up --build
 ```
 
 2. **Access the application:**
-- API: http://localhost:8000 # Redirected to Swagger Docs
+- API: http://localhost:8000/api/
 - Admin: http://localhost:8000/admin/
 - Swagger Docs: http://localhost:8000/swagger/
 
@@ -180,6 +180,13 @@ Test coverage includes:
 - API permissions and access control
 - Alert status updates
 - Filtering and pagination
+
+## Assumptions
+
+1. **Immutable Events:** Security events are treated as immutable logs. If an event has the wrong severity, a new corrected event should be ingested rather than patching the old one.
+2. **Alert Deletion:** Analysts are restricted from deleting alerts to maintain audit trails; they can only view them.
+3. **Single Admin Level:** The system currently assumes a single tier of Admin privilege (Superuser) rather than granular permission groups.
+4. **Timezones:** All timestamps are stored in UTC (or Asia/Kolkata as configured) to ensure consistency across distributed systems.
 
 ## Environment Variables
 
