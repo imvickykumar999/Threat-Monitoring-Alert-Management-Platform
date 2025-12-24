@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "79a12df5-3841-4bf3-a3de-424b42d1cafb",
+		"name": "Threat Monitoring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25350357",
+		"_collection_link": "https://grey-flare-687554.postman.co/workspace/My-Workspace~f66982bb-efa3-4d6d-84f1-13a23da04d43/collection/25350357-79a12df5-3841-4bf3-a3de-424b42d1cafb?action=share&source=collection_link&creator=25350357"
+	},
+	"item": [
+		{
+			"name": "Add Event",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NjExODY4LCJpYXQiOjE3NjY2MDgyNjgsImp0aSI6IjQ4NGFkOGZiMjcyNjRjODNhYzMwYjI4ZTA5MTdkYTYxIiwidXNlcl9pZCI6IjEifQ.jPJFScMqHvrjWrkxAO4K-W2vjbVNU9ZRLKH1-6V9ZHs"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"source_name\": \"Medium Issue\",\r\n    \"event_type\": \"anomaly\", // intrusion, malware, anomaly\r\n    \"severity\": \"Medium\", // Low, Medium, High, Critical\r\n    \"description\": \"Test alert creation\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/events/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"events",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\", // \"analyst_default\"\r\n    \"password\": \"admin123\" // \"securepassword123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/auth/token/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Renew Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NzIxMzA1MywiaWF0IjoxNzY2NjA4MjUzLCJqdGkiOiIxN2UxYTBjZDgxYTc0YTNlYWMwN2IyNDFkNzVlNGQ3ZSIsInVzZXJfaWQiOiIxIn0.DJiW56a6xXzMqJVDb1gEs8UyLkJ0cenQ7iXZIMBSH3Y\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/auth/token/refresh/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"token",
+						"refresh",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch Alert",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NjExODY4LCJpYXQiOjE3NjY2MDgyNjgsImp0aSI6IjQ4NGFkOGZiMjcyNjRjODNhYzMwYjI4ZTA5MTdkYTYxIiwidXNlcl9pZCI6IjEifQ.jPJFScMqHvrjWrkxAO4K-W2vjbVNU9ZRLKH1-6V9ZHs"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"Resolved\" // Open, Acknowledged, Resolved\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/alerts/7/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"alerts",
+						"7",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NjEwNzQyLCJpYXQiOjE3NjY2MDcxNDIsImp0aSI6IjlkNWFkMjdiZDA2ZDQ2ZWQ4MzU4NDRmNmM3YWFlOWRkIiwidXNlcl9pZCI6IjEifQ.n54V2xGSWNpxQfpnGL0sl0JjwR5TgRo8QG-Y3I-5XVM"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"analyst_default\",\n    \"password\": \"securepassword123\",\n    \"email\": \"analyst@example.com\"\n    // ,\"role\": \"admin\" // admin, analyst (default)\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
