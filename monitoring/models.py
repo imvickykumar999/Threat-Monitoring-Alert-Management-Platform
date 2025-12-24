@@ -125,8 +125,12 @@ class Alert(models.Model):
     def save(self, *args, **kwargs):
         """Override save to set resolved_at timestamp"""
         if self.status == 'Resolved' and not self.resolved_at:
+            # Set time when resolving
             from django.utils import timezone
             self.resolved_at = timezone.now()
+        elif self.status != 'Resolved':
+            # CLEAR time if re-opening or acknowledging
+            self.resolved_at = None
         super().save(*args, **kwargs)
 
 

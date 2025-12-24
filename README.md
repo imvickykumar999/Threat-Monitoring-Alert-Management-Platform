@@ -54,7 +54,7 @@ docker-compose up --build
 ```
 
 2. **Access the application:**
-- API: http://localhost:8000
+- API: http://localhost:8000 # Redirected to Swagger Docs
 - Admin: http://localhost:8000/admin/
 - Swagger Docs: http://localhost:8000/swagger/
 
