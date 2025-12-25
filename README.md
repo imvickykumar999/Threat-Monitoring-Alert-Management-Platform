@@ -19,8 +19,10 @@ A Django REST API backend for threat monitoring and alert management system with
 
 1. **Clone and setup:**
 ```bash
-git clone <repository-url>
-cd threat-monitoring-platform
+git clone https://github.com/imvickykumar999/Threat-Monitoring-Alert-Management-Platform.git
+cd Threat-Monitoring-Alert-Management-Platform
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
