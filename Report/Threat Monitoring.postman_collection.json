@@ -8,45 +8,6 @@
 	},
 	"item": [
 		{
-			"name": "Add Event",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NjExODY4LCJpYXQiOjE3NjY2MDgyNjgsImp0aSI6IjQ4NGFkOGZiMjcyNjRjODNhYzMwYjI4ZTA5MTdkYTYxIiwidXNlcl9pZCI6IjEifQ.jPJFScMqHvrjWrkxAO4K-W2vjbVNU9ZRLKH1-6V9ZHs"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"source_name\": \"Medium Issue\",\r\n    \"event_type\": \"anomaly\", // intrusion, malware, anomaly\r\n    \"severity\": \"Medium\", // Low, Medium, High, Critical\r\n    \"description\": \"Test alert creation\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/events/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"events",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Login User",
 			"request": {
 				"method": "POST",
@@ -58,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"admin\", // \"analyst_default\"\r\n    \"password\": \"admin123\" // \"securepassword123\"\r\n}",
+					"raw": "{\r\n    // \"username\": \"analyst\",\r\n    \"username\": \"admin\",\r\n\r\n    // \"password\": \"analyst123\"\r\n    \"password\": \"admin123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -66,12 +27,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/api/auth/token/",
-					"protocol": "http",
+					"raw": "https://siem.imvickykumar999.dpdns.org/api/auth/token/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"siem",
+						"imvickykumar999",
+						"dpdns",
+						"org"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"auth",
@@ -94,7 +57,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NzIxMzA1MywiaWF0IjoxNzY2NjA4MjUzLCJqdGkiOiIxN2UxYTBjZDgxYTc0YTNlYWMwN2IyNDFkNzVlNGQ3ZSIsInVzZXJfaWQiOiIxIn0.DJiW56a6xXzMqJVDb1gEs8UyLkJ0cenQ7iXZIMBSH3Y\"\n}",
+					"raw": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NzI2MzcxMiwiaWF0IjoxNzY2NjU4OTEyLCJqdGkiOiJiM2RhMDZmZjk2NDk0YTBkOWM4NzA4M2Q1OWRlNmQxYyIsInVzZXJfaWQiOiIyIn0.lHHHEO-lY0ZLqylUh8TN0iyKkt6qHOiMqNSIaD6gNOk\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -102,12 +65,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/api/auth/token/refresh/",
-					"protocol": "http",
+					"raw": "https://siem.imvickykumar999.dpdns.org/api/auth/token/refresh/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"siem",
+						"imvickykumar999",
+						"dpdns",
+						"org"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"auth",
@@ -120,39 +85,29 @@
 			"response": []
 		},
 		{
-			"name": "Patch Alert",
+			"name": "All Users",
 			"request": {
-				"method": "PATCH",
+				"method": "GET",
 				"header": [
 					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NjExODY4LCJpYXQiOjE3NjY2MDgyNjgsImp0aSI6IjQ4NGFkOGZiMjcyNjRjODNhYzMwYjI4ZTA5MTdkYTYxIiwidXNlcl9pZCI6IjEifQ.jPJFScMqHvrjWrkxAO4K-W2vjbVNU9ZRLKH1-6V9ZHs"
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NjYyNjk3LCJpYXQiOjE3NjY2NTkwOTcsImp0aSI6ImNiMWRlNTBkZmRjODQ1ZTY5ZTQwNzg2Mzc1Njk5NTEwIiwidXNlcl9pZCI6IjIifQ.xPtOKt3Kewk5VoCh_NMB6qqKURJ8CViIt8rH5CXAGlY",
+						"description": "Access Token of Admin Role",
+						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"status\": \"Resolved\" // Open, Acknowledged, Resolved\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://localhost:8000/api/alerts/7/",
-					"protocol": "http",
+					"raw": "https://siem.imvickykumar999.dpdns.org/api/users/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"siem",
+						"imvickykumar999",
+						"dpdns",
+						"org"
 					],
-					"port": "8000",
 					"path": [
 						"api",
-						"alerts",
-						"7",
+						"users",
 						""
 					]
 				}
@@ -170,12 +125,13 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NjEwNzQyLCJpYXQiOjE3NjY2MDcxNDIsImp0aSI6IjlkNWFkMjdiZDA2ZDQ2ZWQ4MzU4NDRmNmM3YWFlOWRkIiwidXNlcl9pZCI6IjEifQ.n54V2xGSWNpxQfpnGL0sl0JjwR5TgRo8QG-Y3I-5XVM"
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NjU4NzMzLCJpYXQiOjE3NjY2NTUxMzMsImp0aSI6ImQ5YzZhYWM3OGFlYTQ0M2VhMTA3Y2VkMTBjN2MzODVjIiwidXNlcl9pZCI6IjEifQ.j1DlrZEGlrZdcbxjk1f2Mo-tdKHH0iBB4psrmEiVTjc",
+						"description": "Access Token of Admin Role"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"analyst_default\",\n    \"password\": \"securepassword123\",\n    \"email\": \"analyst@example.com\"\n    // ,\"role\": \"admin\" // admin, analyst (default)\n}",
+					"raw": "{\n    \"username\": \"analyst\",\n    \"password\": \"analyst123\",\n    \"email\": \"analyst@example.com\"\n    // ,\"role\": \"admin\" // admin, analyst (default)\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -183,15 +139,331 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/api/users/",
-					"protocol": "http",
+					"raw": "https://siem.imvickykumar999.dpdns.org/api/users/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"siem",
+						"imvickykumar999",
+						"dpdns",
+						"org"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NjYyNjk3LCJpYXQiOjE3NjY2NTkwOTcsImp0aSI6ImNiMWRlNTBkZmRjODQ1ZTY5ZTQwNzg2Mzc1Njk5NTEwIiwidXNlcl9pZCI6IjIifQ.xPtOKt3Kewk5VoCh_NMB6qqKURJ8CViIt8rH5CXAGlY",
+						"description": "Access Token of Admin Role",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://siem.imvickykumar999.dpdns.org/api/users/3/",
+					"protocol": "https",
+					"host": [
+						"siem",
+						"imvickykumar999",
+						"dpdns",
+						"org"
+					],
+					"path": [
+						"api",
+						"users",
+						"3",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Current Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NjYyNjk3LCJpYXQiOjE3NjY2NTkwOTcsImp0aSI6ImNiMWRlNTBkZmRjODQ1ZTY5ZTQwNzg2Mzc1Njk5NTEwIiwidXNlcl9pZCI6IjIifQ.xPtOKt3Kewk5VoCh_NMB6qqKURJ8CViIt8rH5CXAGlY",
+						"description": "Access Token of Admin Role",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://siem.imvickykumar999.dpdns.org/api/users/me/",
+					"protocol": "https",
+					"host": [
+						"siem",
+						"imvickykumar999",
+						"dpdns",
+						"org"
+					],
+					"path": [
+						"api",
+						"users",
+						"me",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Events",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NjYyNjk3LCJpYXQiOjE3NjY2NTkwOTcsImp0aSI6ImNiMWRlNTBkZmRjODQ1ZTY5ZTQwNzg2Mzc1Njk5NTEwIiwidXNlcl9pZCI6IjIifQ.xPtOKt3Kewk5VoCh_NMB6qqKURJ8CViIt8rH5CXAGlY",
+						"description": "Access Token of Admin Role",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://siem.imvickykumar999.dpdns.org/api/events/",
+					"protocol": "https",
+					"host": [
+						"siem",
+						"imvickykumar999",
+						"dpdns",
+						"org"
+					],
+					"path": [
+						"api",
+						"events",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Event",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NjY1MTEyLCJpYXQiOjE3NjY2NjE1MTIsImp0aSI6IjRlOGVkNTA5OTdlNDQxNDc4YjhiZjZmNjIwMDEwNzMzIiwidXNlcl9pZCI6IjIifQ.XBF4JFlnpuLXJTZio0qdGaX65Pp0ZgqFgcJdtniJ_yQ",
+						"description": "Access Token of Admin Role"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"source_name\": \"Critical Issue\",\r\n    \"event_type\": \"intrusion\", // intrusion, malware, anomaly\r\n    \"severity\": \"Critical\", // Low, Medium, High, Critical\r\n    \"description\": \"Test alert creation\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://siem.imvickykumar999.dpdns.org/api/events/",
+					"protocol": "https",
+					"host": [
+						"siem",
+						"imvickykumar999",
+						"dpdns",
+						"org"
+					],
+					"path": [
+						"api",
+						"events",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NjYyNjk3LCJpYXQiOjE3NjY2NTkwOTcsImp0aSI6ImNiMWRlNTBkZmRjODQ1ZTY5ZTQwNzg2Mzc1Njk5NTEwIiwidXNlcl9pZCI6IjIifQ.xPtOKt3Kewk5VoCh_NMB6qqKURJ8CViIt8rH5CXAGlY",
+						"description": "Access Token of Admin Role",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://siem.imvickykumar999.dpdns.org/api/events/?severity=High&source_name=High Issue&event_type=malware&ordering=-timestamp",
+					"protocol": "https",
+					"host": [
+						"siem",
+						"imvickykumar999",
+						"dpdns",
+						"org"
+					],
+					"path": [
+						"api",
+						"events",
+						""
+					],
+					"query": [
+						{
+							"key": "severity",
+							"value": "High",
+							"description": "Low/Medium/High/Critical"
+						},
+						{
+							"key": "source_name",
+							"value": "High Issue"
+						},
+						{
+							"key": "event_type",
+							"value": "malware",
+							"description": "intrusion, malware, anomaly"
+						},
+						{
+							"key": "ordering",
+							"value": "-timestamp"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Alerts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NjY1MTEyLCJpYXQiOjE3NjY2NjE1MTIsImp0aSI6IjRlOGVkNTA5OTdlNDQxNDc4YjhiZjZmNjIwMDEwNzMzIiwidXNlcl9pZCI6IjIifQ.XBF4JFlnpuLXJTZio0qdGaX65Pp0ZgqFgcJdtniJ_yQ",
+						"description": "Access Token of Admin Role",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://siem.imvickykumar999.dpdns.org/api/alerts/?status=Resolved&severity=Medium&ordering=-timestramp",
+					"protocol": "https",
+					"host": [
+						"siem",
+						"imvickykumar999",
+						"dpdns",
+						"org"
+					],
+					"path": [
+						"api",
+						"alerts",
+						""
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "Resolved",
+							"description": "Open, Acknowledged, Resolved"
+						},
+						{
+							"key": "severity",
+							"value": "Medium",
+							"description": "Low/Medium/High/Critical"
+						},
+						{
+							"key": "ordering",
+							"value": "-timestramp"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alert by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NjY1MTEyLCJpYXQiOjE3NjY2NjE1MTIsImp0aSI6IjRlOGVkNTA5OTdlNDQxNDc4YjhiZjZmNjIwMDEwNzMzIiwidXNlcl9pZCI6IjIifQ.XBF4JFlnpuLXJTZio0qdGaX65Pp0ZgqFgcJdtniJ_yQ",
+						"description": "Access Token of Admin Role",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://siem.imvickykumar999.dpdns.org/api/alerts/2/",
+					"protocol": "https",
+					"host": [
+						"siem",
+						"imvickykumar999",
+						"dpdns",
+						"org"
+					],
+					"path": [
+						"api",
+						"alerts",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch Alert",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NjY1MTEyLCJpYXQiOjE3NjY2NjE1MTIsImp0aSI6IjRlOGVkNTA5OTdlNDQxNDc4YjhiZjZmNjIwMDEwNzMzIiwidXNlcl9pZCI6IjIifQ.XBF4JFlnpuLXJTZio0qdGaX65Pp0ZgqFgcJdtniJ_yQ",
+						"description": "Access Token of Admin Role"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"Resolved\" // Open, Acknowledged, Resolved\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://siem.imvickykumar999.dpdns.org/api/alerts/1/",
+					"protocol": "https",
+					"host": [
+						"siem",
+						"imvickykumar999",
+						"dpdns",
+						"org"
+					],
+					"path": [
+						"api",
+						"alerts",
+						"1",
 						""
 					]
 				}
