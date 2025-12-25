@@ -33,7 +33,7 @@ class UserViewSet(viewsets.ModelViewSet):
 class EventFilter(FilterSet):
     """Filter for Event model"""
     severity = ChoiceFilter(choices=Event.SEVERITY_CHOICES)
-    event_type = ChoiceFilter(field_name='event_type', lookup_expr='icontains')
+    event_type = CharFilter(field_name='event_type', lookup_expr='icontains')
 
     class Meta:
         model = Event
