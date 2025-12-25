@@ -56,9 +56,9 @@ docker-compose up --build
 ```
 
 2. **Access the application:**
-- API: http://localhost:8000/api/
-- Admin: http://localhost:8000/admin/
-- Swagger Docs: http://localhost:8000/swagger/
+- API: https://siem.imvickykumar999.dpdns.org/api/
+- Admin: https://siem.imvickykumar999.dpdns.org/admin/
+- Swagger Docs: https://siem.imvickykumar999.dpdns.org/swagger/
 
 ## API Endpoints
 
@@ -109,18 +109,18 @@ docker-compose up --build
 ### 1. Authentication
 ```bash
 # Get JWT token
-curl -X POST http://localhost:8000/api/auth/token/ \
+curl -X POST https://siem.imvickykumar999.dpdns.org/api/auth/token/ \
   -H "Content-Type: application/json" \
   -d '{"username": "admin", "password": "password"}'
 
 # Use token in requests
 curl -H "Authorization: Bearer <your-token>" \
-  http://localhost:8000/api/events/
+  https://siem.imvickykumar999.dpdns.org/api/events/
 ```
 
 ### 2. Create Event (Admin only)
 ```bash
-curl -X POST http://localhost:8000/api/events/ \
+curl -X POST https://siem.imvickykumar999.dpdns.org/api/events/ \
   -H "Authorization: Bearer <your-token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -135,16 +135,16 @@ curl -X POST http://localhost:8000/api/events/ \
 ```bash
 # Get open alerts
 curl -H "Authorization: Bearer <your-token>" \
-  "http://localhost:8000/api/alerts/?status=Open"
+  "https://siem.imvickykumar999.dpdns.org/api/alerts/?status=Open"
 
 # Get high severity alerts
 curl -H "Authorization: Bearer <your-token>" \
-  "http://localhost:8000/api/alerts/?severity=High"
+  "https://siem.imvickykumar999.dpdns.org/api/alerts/?severity=High"
 ```
 
 ### 4. Update Alert Status (Admin only)
 ```bash
-curl -X PATCH http://localhost:8000/api/alerts/1/ \
+curl -X PATCH https://siem.imvickykumar999.dpdns.org/api/alerts/1/ \
   -H "Authorization: Bearer <your-token>" \
   -H "Content-Type: application/json" \
   -d '{"status": "Resolved"}'
