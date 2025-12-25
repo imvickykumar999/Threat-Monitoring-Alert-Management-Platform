@@ -8,3 +8,5 @@ python-decouple>=3.8,<4.0
 psycopg2-binary>=2.9.0,<3.0
 dj-database-url>=2.1.0,<3.0
 Pillow>=10.0.0,<11.0
+gunicorn
+whitenoise
