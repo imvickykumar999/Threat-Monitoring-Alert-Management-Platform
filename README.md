@@ -2,6 +2,8 @@
 
 A Django REST API backend for threat monitoring and alert management system with JWT authentication, role-based access control, and automatic alert generation.
 
+[![SIEM Screenshot](https://github.com/user-attachments/assets/e43848fd-352d-4265-8b70-557afbcc2b46)](https://siem.imvickykumar999.dpdns.org/)
+
 ## Features
 
 - **JWT Authentication** with role-based access control (Admin/Analyst)
