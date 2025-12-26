@@ -24,8 +24,16 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-7wo=z62_r8+5x8zv=r2sw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1,.railway.app').split(',')
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+# CSRF protection settings for Railway deployment
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.railway.app",
+]
+
+# Use forwarded host header from proxy
+USE_X_FORWARDED_HOST = True
 
 # Custom User Model
 AUTH_USER_MODEL = 'monitoring.User'
